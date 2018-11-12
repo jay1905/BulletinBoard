@@ -4,55 +4,25 @@ const port = 3000
 const pg = require('pg');
 const bodyParser = require('body-parser')
 const { Pool, Client } = require('pg')
-const connectionString = 'postgresql://jaime:null@127.0.0.1:5432/postgres'
+const connectionString = 'postgresql://' + process.env.POSTGRES_USER + ':' + process.env.POSTGRES_PASSWORD + '@127.0.0.1:5432/bulletinboard'
 app.set('view engine','ejs')
-app.use(express.static(__dirname + '/public'));//declaring my paths for css
+app.use(express.static(__dirname + '/public'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
 
-// let users =[]
-// let messages=[]
 const pool = new Pool({
   connectionString: connectionString,
 })
-// const getUsers=()=>{
-//   pool.query(`SELECT * FROM users`, (err, res) => {
-//     if (err) {
-//         throw err
-//           }
-//      users=res.rows
-//    })
-//    return users
-// }
-// const getMessages=()=>{
-//   pool.query(`SELECT * FROM messages`, (err, res) => {
-//     if (err) {
-//         throw err
-//           }
-//       messages=res.rows
-//    })
-//    return messages
-// }
-// getUsers()
-// getMessages()
+
 app.get('/', (req, response) => {
 
-
-    pool.query(`SELECT * FROM users`, (err, res) => {
-      if (err) {
-          throw err
-            }
-       let users=res.rows
        pool.query(`SELECT * FROM messages`, (err, res) => {
          if (err) {
              throw err
                }
            let messages=res.rows
-
-           response.render('index',{users,messages})
+           response.render('index',{messages})
         })
-     })
-
 
 })
 app.get('/add',(req, res) => res.render('addMsg'))
@@ -66,6 +36,5 @@ app.post('/addmessage', (req, response) =>{
    })
 
 })
-
 
 app.listen(port, () => console.log(`listening on port ${port}!`))

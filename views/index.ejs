@@ -9,10 +9,8 @@
     <% messages.forEach(function(thing){ %>
       <div class="message">
         <ul style="padding:5px;">
-          title: <%= thing.title %><br>
-          body: <%= thing.body %> <br>
-          messageid:<%= thing.id %> <br>
-          userid:<%= thing.userid %> <br>
+        <h3><%= thing.title %></h3>
+          <%= thing.body %> <br>
         </ul>
       </div>
     <% }) %>

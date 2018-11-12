@@ -7,15 +7,13 @@
   <body>
       <% include ./head%>
 
-      <form class="" action="/addmessage" method="post">
+      <form class="title" action="/addmessage" method="post">
         <h2>Add Message</h2><br>
-        UserName:
-        <input type="text" name="userName" value=""><br>
         Title:
         <input type="text" name="msgTitle" value=""><br>
-        Message body <br>
-        <textarea name="msgBody" rows="8" cols="80"></textarea><br>
-        <input type="submit"  value="Submit">
+        Message: <br>
+        <textarea name="msgBody" rows="5" cols="50"></textarea><br>
+        <input class="btn"type="submit"  value="Submit">
       </form>
   </body>
 </html>
