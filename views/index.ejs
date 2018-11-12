@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <% include ./head%>
+  </head>
+  <body>
+    <% messages.forEach(function(thing){ %>
+      <div class="message">
+        <ul style="padding:5px;">
+          title: <%= thing.title %><br>
+          body: <%= thing.body %> <br>
+          messageid:<%= thing.id %> <br>
+          userid:<%= thing.userid %> <br>
+        </ul>
+      </div>
+    <% }) %>
+
+
+  </body>
+</html>

@@ -1,0 +1,39 @@
+body {
+  margin: auto;
+  padding: 0px;
+  text-align: center;
+  background-color: #0b476D;
+}
+.left{
+  float: left;
+  margin: 10px;
+  position: absolute;
+}
+.title{
+  margin: auto;
+  color: #78be97;
+}
+.appName{
+  font-size:100px;
+}
+.btn{
+  background-color: #398689;
+  color: #a7dda7;
+  margin: 5px;
+}
+.btn:hover{
+background-color: #a7dda7 !important;
+color: #398689 !important;
+}
+.row{
+}
+.message{
+    background-color: #a7dda7;
+    color:#398689;
+    float:left;
+    margin:15px;
+    text-align:left;
+    border-radius:3px;
+    padding:5px;
+    box-shadow: 5px 5px 5px grey;
+}
